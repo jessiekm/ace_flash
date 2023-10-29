@@ -1,4 +1,5 @@
 import 'package:ace_flash/constants/appwrite_constants.dart';
+import 'package:ace_flash/core/core.dart' as either;
 import 'package:ace_flash/core/failure.dart';
 import 'package:ace_flash/core/providers.dart';
 import 'package:ace_flash/core/type_defs.dart';
@@ -7,7 +8,6 @@ import 'package:appwrite/appwrite.dart';
 import 'package:appwrite/models.dart';
 import 'package:either_dart/either.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ace_flash/core/core.dart' as either;
 
 final flashAPIProvider = Provider((ref) {
   return FlashAPI(
@@ -29,6 +29,26 @@ class FlashAPI implements IFlashAPI {
     final documents = await _db.listDocuments(
       databaseId: AppwriteConstants.databaseId,
       collectionId: AppwriteConstants.aceFlashCollection,
+    );
+    return documents.documents;
+  }
+
+  Future<List<Document>> getFlashcardsByCidOrder() async {
+    final documents = await _db.listDocuments(
+      databaseId: AppwriteConstants.databaseId,
+      collectionId: AppwriteConstants.aceFlashCollection,
+      queries: [
+        Query.orderDesc('cid'),
+      ],
+    );
+    return documents.documents;
+  }
+
+  Future<List<Document>> getFlashcardsByCid(int cid) async {
+    final documents = await _db.listDocuments(
+      databaseId: AppwriteConstants.databaseId,
+      collectionId: AppwriteConstants.aceFlashCollection,
+      queries: [Query.equal("cid", cid)],
     );
     return documents.documents;
   }

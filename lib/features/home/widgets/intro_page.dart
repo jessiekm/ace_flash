@@ -9,20 +9,6 @@ class IntroPage extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       children: const <Widget>[
         PageTitle(title: 'Welcome to AP Computer Science Flashcards'),
-        TextParagraph(
-          text:
-              'Get ready to master AP Computer Science concepts with our interactive flashcards. '
-              'Our app is designed to help you learn and reinforce key topics in computer science.',
-        ),
-        SectionHeading(text: 'Features'),
-        BulletPoint(
-            text:
-                'Hundreds of flashcards covering AP CS A and AP CS Principles.'),
-        BulletPoint(text: 'Practice and test modes to enhance your learning.'),
-        BulletPoint(text: 'Detailed explanations for each flashcard.'),
-        TextParagraph(
-            text:
-                'Whether you are preparing for the AP Computer Science exam or simply want to improve your coding skills, our flashcards are here to assist you.'),
         SectionHeading(text: 'How to Use'),
         BulletPoint(
             text:
@@ -31,8 +17,7 @@ class IntroPage extends StatelessWidget {
             text: 'Tap a flashcard to reveal the answer and explanation.'),
         BulletPoint(text: 'Swipe left or right to move between flashcards.'),
         TextParagraph(
-          text:
-              'Start learning now and ace your AP Computer Science exam with confidence!',
+          text: 'Now get ready to start learning!',
         ),
       ],
     );

@@ -27,7 +27,7 @@ class SideDrawer extends ConsumerWidget {
                 color: Pallete.blueColor,
               ),
               title: const Text(
-                'My Flash Card',
+                'My FlashCards',
                 style: TextStyle(fontSize: 22, color: Pallete.whiteColor),
               ),
               onTap: () {

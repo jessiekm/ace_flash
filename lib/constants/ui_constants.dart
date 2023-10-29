@@ -7,7 +7,7 @@ class UIConstants {
     return AppBar(
       backgroundColor: Pallete.blueColor,
       title: const Text(
-        "AP Computer Science Flashcard",
+        "AP Computer Science Flashcards",
         style: TextStyle(
           color: Pallete.blackColor, // Set the color of the banner text
           fontSize: 20,
@@ -25,6 +25,4 @@ class UIConstants {
   static const List<Widget> bottomTabBarPages = [
     IntroPage(),
   ];
-  // ExploreView(),
-  // NotificationView(),
 }

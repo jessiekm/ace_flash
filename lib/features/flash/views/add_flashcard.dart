@@ -36,7 +36,7 @@ class _AddQuestionAnswerPageState extends ConsumerState<AddQuestionAnswerPage> {
           icon: const Icon(Icons.close, size: 30),
         ),
         title: const Text(
-          "AP Computer Science Flashcard",
+          "AP Computer Science Flashcards",
           style: TextStyle(
             color: Pallete.blackColor, // Set the color of the banner text
             fontSize: 20,
@@ -110,7 +110,9 @@ class _AddQuestionAnswerPageState extends ConsumerState<AddQuestionAnswerPage> {
   }
 
   void onSubmit() {
-    ref.watch(getFlashCardCountProvider).when(
+    // ignore: unused_result
+    ref.refresh(getFlashCardCountProvider.future);
+    ref.read(getFlashCardCountProvider).when(
           data: (count) {
             if (count == null) {
               const ErrorText(error: "Error Retrieve Flashcard");
@@ -122,6 +124,8 @@ class _AddQuestionAnswerPageState extends ConsumerState<AddQuestionAnswerPage> {
                   cid: count,
                   context: context);
             }
+            // ignore: unused_result
+            ref.refresh(getFlashCardCountProvider.future);
           },
           error: (error, stackTrace) => ErrorText(
             error: error.toString(),

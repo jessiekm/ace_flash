@@ -44,17 +44,18 @@ class FlashController extends StateNotifier<bool> {
   }
 
   Future<Flash?> getFlashByCid(int cid) async {
-    final flashList = await _flashAPI.getFlashcards();
+    final flashList = await _flashAPI.getFlashcardsByCid(cid);
     List<Flash> cards =
         flashList.map((flash) => Flash.fromMap(flash.data)).toList();
-    return findCardByCid(cards, cid);
+    return cards[0];
   }
 
   Future<int?> getFlashCardCount() async {
-    final flashList = await _flashAPI.getFlashcards();
+    final flashList = await _flashAPI.getFlashcardsByCidOrder();
     List<Flash> cards =
         flashList.map((flash) => Flash.fromMap(flash.data)).toList();
-    return cards.length;
+    return cards[0].cid + 1;
+    // return cards.length;
   }
 
   Flash? findCardByCid(List<Flash> cards, int targetCid) {

@@ -14,8 +14,7 @@ import 'package:flutter_svg/svg.dart';
 
 class CreateFlashScreen extends ConsumerStatefulWidget {
   static route(int cid, {int currentFlashCardIdx = 0}) => MaterialPageRoute(
-        builder: (context) =>
-            CreateFlashScreen(currentFlashCardIdx: currentFlashCardIdx),
+        builder: (context) => CreateFlashScreen(currentFlashCardIdx: cid),
       );
 
   final int currentFlashCardIdx; // Add this parameter
@@ -54,7 +53,7 @@ class _CreateFlashScreenState extends ConsumerState<CreateFlashScreen> {
   }
 
   Future<void> fetchNextFlashcard() async {
-    if (currentFlashCardIdx < getTotalFlashCardCount()) {
+    if (currentFlashCardIdx < getTotalFlashCardCount() - 1) {
       currentFlashCardIdx++;
       setState(() {});
     }
@@ -84,6 +83,8 @@ class _CreateFlashScreenState extends ConsumerState<CreateFlashScreen> {
   }
 
   int getTotalFlashCardCount() {
+    // ignore: unused_result
+    ref.refresh(getFlashCardCountProvider.future);
     final count = ref.watch(getFlashCardCountProvider).value;
     if (count == null) {
       return 0;
@@ -104,7 +105,7 @@ class _CreateFlashScreenState extends ConsumerState<CreateFlashScreen> {
           icon: const Icon(Icons.close, size: 30),
         ),
         title: const Text(
-          "AP Computer Science Flashcard",
+          "AP Computer Science Flashcards",
           style: TextStyle(
             color: Pallete.blackColor, // Set the color of the banner text
             fontSize: 20,
