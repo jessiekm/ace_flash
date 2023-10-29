@@ -57,7 +57,7 @@ class _AddQuestionAnswerPageState extends ConsumerState<AddQuestionAnswerPage> {
               children: [
                 AuthField(
                   controller: catalogController,
-                  hintText: 'Catalog',
+                  hintText: 'Category',
                 ),
                 const SizedBox(height: 25),
                 MultiLineAuthField(

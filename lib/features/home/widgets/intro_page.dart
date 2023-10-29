@@ -12,10 +12,13 @@ class IntroPage extends StatelessWidget {
         SectionHeading(text: 'How to Use'),
         BulletPoint(
             text:
-                'Browse flashcards by topic or use the search feature to find specific concepts.'),
+                'Flashcards are conveniently organized by categories: Definitions, Keywords, True/False, Simple Statements.'),
         BulletPoint(
             text: 'Tap a flashcard to reveal the answer and explanation.'),
         BulletPoint(text: 'Swipe left or right to move between flashcards.'),
+        BulletPoint(text: 'Shuffle flashcards to randomly draw flashcard.'),
+        BulletPoint(
+            text: 'Insert customized flashcards by clicking PLUS icon.'),
         TextParagraph(
           text: 'Now get ready to start learning!',
         ),
